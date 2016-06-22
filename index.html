@@ -5,6 +5,26 @@
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.js"></script>
     </head>
     <body ng-app="app">
+        <div ng-controller="SetsController as vm">
+            <label for="search">Tema a buscar: </label>
+            <input namel="search" ng-model="vm.search">
+            <button ng-click="vm.getSets()">Buscar</button>
+            <br>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Thumb</th><th>ID</th><th>Descrição</th>
+                    </tr>
+                </thead>
+                <tr ng-repeat="set in vm.sets">
+                    <td><img ng-src="{{set.img_tn}}" alt="{{set.descr}}"></td>
+                    <td>{{set.set_id}}</td>
+                    <td>{{set.descr}}</td>
+                </tr>
+            </table>
+        </div>
         <script src="js/app.module.js"></script>
+        <script src="js/rebrickable.service.js"></script>
+        <script src="js/sets.controller.js"></script>
     </body>
 </html>
