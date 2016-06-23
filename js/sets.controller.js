@@ -17,7 +17,7 @@
                 return RebrickableService.getSets(vm.search)
                     .then(function(data) {
                         vm.sets = data;
-                        return vm.setsç
+                        return vm.sets;
                     });
            } 
         }
