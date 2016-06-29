@@ -29,11 +29,9 @@
         };
 
         function getTypes() {
-            return function() {
-                var defer = $q.defer();
-                defer.resolve(types);
-                return defer.promise;
-            }
+            return $q(function(resolve, reject){
+                resolve(types);
+            });
         }
 
         function getResults(uri, params) {
@@ -53,12 +51,12 @@
             return getResults('/get_part_types', params);
         }
 
-        function getSets(queryStr, partType) {
+        function getSets(type, queryStr, partType) {
             var _params = params;
-            _params.type = 'S';
+            _params.type = type;
             _params.query = queryStr;
             _params.part_type_id = partType;
-            console.log(_params);
+            
             return getResults('/search', _params);
         }
 

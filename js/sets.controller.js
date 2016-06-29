@@ -28,7 +28,7 @@
 
             function getSets() {
                 var id = typeof vm.partType !== 'undefined' ? vm.partType.part_type_id : ''; 
-                return RebrickableService.getSets(vm.search, id)
+                return RebrickableService.getSets(vm.type.id, vm.search, id)
                     .then(function(data) {
                         vm.sets = data.results;
                         return vm.sets;
