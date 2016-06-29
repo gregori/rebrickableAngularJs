@@ -7,7 +7,12 @@
     <body ng-app="app">
         <div ng-controller="SetsController as vm">
             <label for="search">Tema a buscar: </label>
-            <input namel="search" ng-model="vm.search">
+            <select ng-model="vm.type"
+                ng-options="type.name for type in vm.types track by type.id">
+            <input name="search" ng-model="vm.search">
+            <select ng-show="vm.type.id==='P'" ng-model="vm.partType"
+                ng-options="partType.desc for partType in vm.partTypes track by partType.part_type_id">
+            </select>
             <button ng-click="vm.getSets()">Buscar</button>
             <br>
             <table>
